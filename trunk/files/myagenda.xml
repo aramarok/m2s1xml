@@ -1,11 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <myagenda>
 <contact id="c1">
-   <name>c1</name>
-   <phone>p1</phone>
+   <name>Ion Popescu</name>
+   <phone>12345678</phone>
 </contact>
 <contact id="c2">
-   <name>c2</name>
-   <phone>p2</phone>
+   <name>Mircea Ionescu</name>
+   <phone>2223333</phone>
+</contact>
+<contact id="c3">
+   <name>Janos Attila</name>
+   <phone>44422111</phone>
+</contact>
+<contact id="c4">
+   <name>Popa Mihai</name>
+   <phone>23265433</phone>
+</contact>
+<contact id="c5">
+   <name>Laura Ionescu</name>
+   <phone>23843242</phone>
 </contact>
 </myagenda>
