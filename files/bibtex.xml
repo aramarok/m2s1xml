@@ -1,0 +1,177 @@
+<?xml version="1.0"?>
+<bibtex:file xmlns:bibtex="http://bibtexml.sf.net/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://bibtexml.sf.net/ C:\DOCUME~1\admin\Desktop\MASTER~1\FFORTI~1\prj1\workspace\P1\files\bibtex.xsd">
+	<!-- This file was exported from JabRef jabref.sf.net -->
+	<!-- 2006-01-17 added DOI XML character formatting, because DOI can contain &lt; and &gt; -->
+	<bibtex:entry id="Bergamaschi1999">
+		<bibtex:article>
+			<bibtex:author>Sonia Bergamaschi and Silvana Castano and Maurizio Vincini</bibtex:author>
+			<bibtex:title>Semantic Integration of Semistructured and Structured Data Sources</bibtex:title>
+			<bibtex:journal>SIGMOD Record</bibtex:journal>
+			<bibtex:year>1999</bibtex:year>
+			<bibtex:volume>28</bibtex:volume>
+			<bibtex:pages>54-59</bibtex:pages>
+		</bibtex:article>
+	</bibtex:entry>
+	<bibtex:entry id="Brown1971">
+		<bibtex:book>
+			<bibtex:author>Carter Brown</bibtex:author>
+			<bibtex:editor>Carter Brown</bibtex:editor>
+			<bibtex:title>Murder in the Family Way</bibtex:title>
+			<bibtex:publisher>Signet</bibtex:publisher>
+			<bibtex:year>1971</bibtex:year>
+			<bibtex:volume>3</bibtex:volume>
+			<bibtex:month>January</bibtex:month>
+			<bibtex:pages>553</bibtex:pages>
+			<bibtex:number>2</bibtex:number>
+			<bibtex:edition>Third Editon</bibtex:edition>
+			<bibtex:series>Greatest Series</bibtex:series>
+			<bibtex:address>Unknown address</bibtex:address>
+			<bibtex:abstract>Abstract of Murder in the Family Way by Carter Brown</bibtex:abstract>
+			<bibtex:url>http://127.0.0.1</bibtex:url>
+			<bibtex:keywords>brown muder family</bibtex:keywords>
+			<bibtex:comment>This is a great book.</bibtex:comment>
+			<bibtex:note>No notes</bibtex:note>
+		</bibtex:book>
+	</bibtex:entry>
+	<bibtex:entry id="Chaieb2007">
+		<bibtex:conference>
+			<bibtex:author>Amine Chaieb and Pascal Fontaine</bibtex:author>
+			<bibtex:title>Practical Proof Reconstruction for First&#45;Order Logic and Set&#45;Theoretical Constructions</bibtex:title>
+			<bibtex:booktitle>ISABELLE&#45;WS</bibtex:booktitle>
+			<bibtex:year>2007</bibtex:year>
+		</bibtex:conference>
+	</bibtex:entry>
+	<bibtex:entry id="Connaire2009">
+		<bibtex:conference>
+			<bibtex:author>Ciaran O Connaire and Philip Kelly and Damien Connaghan</bibtex:author>
+			<bibtex:title>TennisSense: A Platform for Extracting Semantic Information from Multi&#45;camera Tennis Data</bibtex:title>
+			<bibtex:booktitle>DSP 2009 &#45; 16th International Conference on Digital Signal Processing</bibtex:booktitle>
+			<bibtex:year>2009</bibtex:year>
+		</bibtex:conference>
+	</bibtex:entry>
+	<bibtex:entry id="Counselman1978">
+		<bibtex:book>
+			<bibtex:author>Mary Elizabeth Counselman</bibtex:author>
+			<bibtex:editor>Mary Elizabeth Counselman</bibtex:editor>
+			<bibtex:title>Half in Shadow</bibtex:title>
+			<bibtex:publisher>Arkham House</bibtex:publisher>
+			<bibtex:year>1978</bibtex:year>
+		</bibtex:book>
+	</bibtex:entry>
+	<bibtex:entry id="Eichelberg2005">
+		<bibtex:article>
+			<bibtex:author>Marco Eichelberg and Thomas Aden</bibtex:author>
+			<bibtex:title>A Survey and Analysis of Electronic Healthcare Record Standards</bibtex:title>
+			<bibtex:journal>ACM Computing Surveys</bibtex:journal>
+			<bibtex:year>2005</bibtex:year>
+			<bibtex:volume>5</bibtex:volume>
+			<bibtex:pages>5-14</bibtex:pages>
+		</bibtex:article>
+	</bibtex:entry>
+	<bibtex:entry id="Gallant1974">
+		<bibtex:book>
+			<bibtex:author>Mavis Gallant</bibtex:author>
+			<bibtex:editor>Mavis Gallant</bibtex:editor>
+			<bibtex:title>The End of the World and Other Stories</bibtex:title>
+			<bibtex:publisher>New Canadian Library</bibtex:publisher>
+			<bibtex:year>1974</bibtex:year>
+		</bibtex:book>
+	</bibtex:entry>
+	<bibtex:entry id="Gelernter1985">
+		<bibtex:article>
+			<bibtex:author>David Gelernter</bibtex:author>
+			<bibtex:title>Generative Communication in Linda</bibtex:title>
+			<bibtex:journal>ACM Trans. Program. Lang. Syst.</bibtex:journal>
+			<bibtex:year>1985</bibtex:year>
+			<bibtex:volume>7</bibtex:volume>
+			<bibtex:month>October</bibtex:month>
+			<bibtex:pages>80-112</bibtex:pages>
+			<bibtex:number>2</bibtex:number>
+			<bibtex:abstract>Generative communication is the basis of a new distributed programming langauge that is intended for systems programming in distributed settings generally and on integrated network computers in particular. It differs from previous interprocess communication models in specifying that messages be added in tuple&#45;structured form to the computation environment&#44; where they exist as named&#44; independent entities until some process chooses to receive them. Generative communication results in a number of distinguishing properties in the new language&#44; Linda&#44; that is built around it. Linda is fully distributed in space and distributed in time; it allows distributed sharing&#44; continuation passing&#44; and structured naming. We discuss these properties and their implications&#44; then give a series of examples. Linda presents novel implementation problems that we discuss in Part II. We are particularly concerned with implementation of the dynamic global name space that the generative communication model requires.</bibtex:abstract>
+			<bibtex:url>http://dx.doi.org/10.1145/2363.2433</bibtex:url>
+			<bibtex:doi>10.1145/2363.2433</bibtex:doi>
+			<bibtex:eid>44857876</bibtex:eid>
+			<bibtex:keywords>javaspaces&#44; programming&#44; service&#44; tuple&#44; tuple&#45;space</bibtex:keywords>
+			<bibtex:comment>No Comment</bibtex:comment>
+			<bibtex:note>No note</bibtex:note>
+		</bibtex:article>
+	</bibtex:entry>
+	<bibtex:entry id="Gurov2008">
+		<bibtex:conference>
+			<bibtex:author>D. Gurov</bibtex:author>
+			<bibtex:editor>K.G. Larsen and A. Wasowski and U. Nyman</bibtex:editor>
+			<bibtex:title>An Algorithmic Approach to Compositional Verification of Sequential Programs with Procedures: An Overview</bibtex:title>
+			<bibtex:booktitle>Foundations of Interface Technologies</bibtex:booktitle>
+			<bibtex:publisher>Academic Press</bibtex:publisher>
+			<bibtex:year>2008</bibtex:year>
+			<bibtex:volume>2</bibtex:volume>
+			<bibtex:month>July</bibtex:month>
+			<bibtex:pages>840-868</bibtex:pages>
+			<bibtex:number>5</bibtex:number>
+			<bibtex:series>Latest</bibtex:series>
+			<bibtex:organization>JSA</bibtex:organization>
+			<bibtex:address>Unknown</bibtex:address>
+			<bibtex:abstract>We present a method for algorithmic&#44; compositional verification of control&#45;flow&#45;based safety properties of sequential programs with procedures. The application of the method involves three steps: (1) decomposing the desired global property into local properties of the components&#44; (2) proving the correctness of the property decomposition by using a maximal model construction&#44; and (3) verifying that the component implementations obey their local specifications. We consider safety properties of both the structure and the behaviour of program control flow. Our compositional verification method builds on a technique proposed by Grumberg and Long that uses maximal models to reduce compositional verification of finite&#45;state parallel processes to standard model checking. We present a novel maximal model construction for the fragment of the modal &#64;m&#45;calculus with boxes and greatest fixed points only&#44; and adapt it to control&#45;flow graphs modelling components described in a sequential procedural language. We extend our verification method to programs with private procedures by defining an abstraction&#44; presented as an inlining transformation. All algorithms have been implemented in a tool set automating all required verification steps. We validate our approach on an electronic purse case study.</bibtex:abstract>
+			<bibtex:url>ftp://ftp&#45;sop.inria.fr/everest/Marieke.Huisman/fit.pdf</bibtex:url>
+			<bibtex:doi>doiValue</bibtex:doi>
+			<bibtex:keywords>Compositional reasoning&#44; Control&#45;flow behaviour&#44; Maximal model&#44; Private procedures&#44; Program verification&#44; Safety properties</bibtex:keywords>
+			<bibtex:comment>No Comments</bibtex:comment>
+			<bibtex:note>No notes</bibtex:note>
+		</bibtex:conference>
+	</bibtex:entry>
+	<bibtex:entry id="Gurov2007">
+		<bibtex:conference>
+			<bibtex:author>Dilian Gurov</bibtex:author>
+			<bibtex:title>Composing Modal Properties of Programs with Procedures</bibtex:title>
+			<bibtex:booktitle>Formal Foundations of Embedded Software and Component&#45;Based Software Architectures</bibtex:booktitle>
+			<bibtex:year>2007</bibtex:year>
+		</bibtex:conference>
+	</bibtex:entry>
+	<bibtex:entry id="Howard2006">
+		<bibtex:book>
+			<bibtex:author>Robert E. Howard</bibtex:author>
+			<bibtex:editor>Robert E. Howard</bibtex:editor>
+			<bibtex:title>Kull: Exile of Atlantis</bibtex:title>
+			<bibtex:publisher>Del Rey Books</bibtex:publisher>
+			<bibtex:year>2006</bibtex:year>
+			<bibtex:pages>349</bibtex:pages>
+		</bibtex:book>
+	</bibtex:entry>
+	<bibtex:entry id="Huisman2007">
+		<bibtex:conference>
+			<bibtex:author>Marieke Huisman</bibtex:author>
+			<bibtex:title>Permission Specifications for Common Multithreaded Programming Patterns</bibtex:title>
+			<bibtex:booktitle>Reflections on Type Theory&#44; Lambda Calculus&#44; and the Mind</bibtex:booktitle>
+			<bibtex:year>2007</bibtex:year>
+		</bibtex:conference>
+	</bibtex:entry>
+	<bibtex:entry id="Garcia-Molina2006">
+		<bibtex:article>
+			<bibtex:author>Sergio Marti and Hector Garcia&#45;Molina</bibtex:author>
+			<bibtex:title>Taxonomy of Trust: Categorizing P2P Reputation Systems</bibtex:title>
+			<bibtex:journal>Computer Networks</bibtex:journal>
+			<bibtex:year>2006</bibtex:year>
+			<bibtex:volume>50</bibtex:volume>
+			<bibtex:pages>472-484</bibtex:pages>
+		</bibtex:article>
+	</bibtex:entry>
+	<bibtex:entry id="Suryanarayana2004">
+		<bibtex:article>
+			<bibtex:author>Suryanarayana&#44; G. and Taylor&#44; R.N.</bibtex:author>
+			<bibtex:title>A Survey of Trust Management and Resource Discovery Technologies in Peer&#45;to&#45;Peer Applications</bibtex:title>
+			<bibtex:journal>UCI Institute for Software Research</bibtex:journal>
+			<bibtex:year>2004</bibtex:year>
+			<bibtex:volume>UCI&#45;ISR&#45;04&#45;6</bibtex:volume>
+			<bibtex:pages>56-77</bibtex:pages>
+		</bibtex:article>
+	</bibtex:entry>
+	<bibtex:entry id="Wells1960">
+		<bibtex:book>
+			<bibtex:author>H. G. Wells</bibtex:author>
+			<bibtex:editor>H. G. Wells</bibtex:editor>
+			<bibtex:title>Best Stories of H. G. Wells</bibtex:title>
+			<bibtex:publisher>Ballantine Books</bibtex:publisher>
+			<bibtex:year>1960</bibtex:year>
+		</bibtex:book>
+	</bibtex:entry>
+</bibtex:file>
