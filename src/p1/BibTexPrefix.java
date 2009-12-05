@@ -21,7 +21,6 @@ public class BibTexPrefix implements NamespaceContext {
 	}
 
 	@SuppressWarnings("unchecked")
-	@Override
 	public Iterator getPrefixes(String namespaceURI) {
 		return null;
 	}
