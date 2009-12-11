@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xsl:stylesheet version="1.0"
-	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-	xmlns:fo="http://www.w3.org/1999/XSL/Format">
+	xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format">
 	<xsl:template match="/">
 
 		<fo:root xmlns:fo="http://www.w3.org/1999/XSL/Format">
@@ -19,25 +18,54 @@
 
 			<fo:page-sequence master-reference="A4" format="A">
 				<fo:flow flow-name="xsl-region-body">
-					<fo:block>
-						<fo:inline font-weight="bold">
+					<fo:block text-align="center" font="32pt Times">
+						<fo:inline font-weight="bold" color="darkblue">LISTA CONTACTELOR
+							DIN AGENDA
+						</fo:inline>
+					</fo:block>
+					<fo:block border-top-color="black" border-top-style="solid"
+						border-top-width="thick" background-color="lightblue">
+						<fo:table table-layout="fixed" width="100%">
+							<fo:table-column column-width="proportional-column-width(1)" />
+							<fo:table-column column-width="proportional-column-width(1)" />
+							<fo:table-body>
+								<fo:table-row>
+									<fo:table-cell display-align="center">
+										<fo:block text-align="left">
+											<fo:inline font-weight="bold" color="black">Nume
+											</fo:inline>
+										</fo:block>
+									</fo:table-cell>
+									<fo:table-cell display-align="center">
+										<fo:block text-align="left">
+											<fo:inline font-weight="bold" color="black">Telefon
+											</fo:inline>
+										</fo:block>
+									</fo:table-cell>
+								</fo:table-row>
+							</fo:table-body>
+						</fo:table>
+					</fo:block>
+					<fo:block border-top-color="black" border-top-style="solid"
+						border-top-width="thick" background-color="lightgray">
+						<fo:inline font-weight="bold" color="darkblue">
 							<fo:table table-layout="fixed" width="100%">
-								<fo:table-column column-width="proportional-column-width(1)"/>
-								<fo:table-column column-width="proportional-column-width(1)"/>
+								<fo:table-column column-width="proportional-column-width(1)" />
+								<fo:table-column column-width="proportional-column-width(1)" />
 								<fo:table-body>
 									<xsl:for-each select="//contact">
 										<fo:table-row>
-										<fo:table-cell display-align="center">
-										  <fo:block text-align="left">
-											<xsl:value-of select="name" />
-										  </fo:block>
-										</fo:table-cell>
-										<fo:table-cell display-align="center">
-										  <fo:block text-align="left">
-											<xsl:value-of select="phone" />
-										  </fo:block>
-										</fo:table-cell>
-									  </fo:table-row>
+											<fo:table-cell display-align="center">
+												<fo:block text-align="left">
+													<xsl:value-of select="name" />
+												</fo:block>
+											</fo:table-cell>
+											<fo:table-cell display-align="center">
+												<fo:block text-align="left">
+													<xsl:value-of select="phone" />
+												</fo:block>
+											</fo:table-cell>
+										</fo:table-row>
 									</xsl:for-each>
 								</fo:table-body>
 							</fo:table>
