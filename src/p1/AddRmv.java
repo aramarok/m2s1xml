@@ -61,6 +61,6 @@ public class AddRmv {
 		hashMap.put("newphone", "telnou");
 		addEntity(hashMap);
 
-		deleteEntity("c2");
+//		deleteEntity("numenou");
 	}
 }
