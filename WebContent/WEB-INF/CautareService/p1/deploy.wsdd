@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from CautareService WSDL service -->
+
+  <service name="Cautare" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://p1"/>
+      <parameter name="wsdlServiceElement" value="CautareService"/>
+      <parameter name="schemaQualified" value="http://xml.apache.org/xml-soap,http://p1"/>
+      <parameter name="wsdlServicePort" value="Cautare"/>
+      <parameter name="className" value="p1.Cautare"/>
+      <parameter name="wsdlPortType" value="Cautare"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://p1" xmlns:retNS="http://p1" xmlns:rtns="http://xml.apache.org/xml-soap" name="search" qname="operNS:search" returnQName="retNS:searchReturn" returnType="rtns:Map" soapAction="">
+        <parameter xmlns:pns="http://p1" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:searchBy" type="tns:string"/>
+        <parameter xmlns:pns="http://p1" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:value" type="tns:string"/>
+      </operation>
+      <parameter name="allowedMethods" value="search"/>
+
+  </service>
+</deployment>
