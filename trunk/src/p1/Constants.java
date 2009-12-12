@@ -2,7 +2,7 @@ package p1;
 
 public interface Constants {
 
-	public String ASSETS_PATH = "files/";
+	public String ASSETS_PATH = "../webapps/m2s1xml/files/";
 
 	// bibtex
 	public String XML_PATH = ASSETS_PATH + "bibtex.xml";
