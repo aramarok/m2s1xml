@@ -2,13 +2,18 @@ package p1;
 
 public interface Constants {
 
-	//public String ASSETS_PATH = "../webapps/m2s1xml/files/";
-	public String ASSETS_PATH = "WebContent/files/";
-	
+	public String ASSETS_PATH = "../m2s1xml/WebContent/files/";
+	public String ASSETS_PATH2 = "../webapps/m2s1xml/files/";
+
 	// bibtex
-	public String XML_PATH = ASSETS_PATH + "bibtex.xml";
-	public String XSD_PATH = ASSETS_PATH + "bibtex.xsd";
-	public String FOP_BOOKS = ASSETS_PATH + "fo_books.xsl";
+	public String BIBTEX_XML_DB = ASSETS_PATH + "bibtex.xml";
+	public String BIBTEX_XSD = ASSETS_PATH + "bibtex.xsd";
+	
+	public String BIBTEX_FOP_XSL = ASSETS_PATH + "bibtex.xsl";
+	public String BIBTEX_FOP_OUT = ASSETS_PATH + "bibtex.pdf";
+	
+	public String BIBTEX_XSL_ADD = ASSETS_PATH + "bibtexAdd.xsl";
+	public String BIBTEX_XSL_REMOVE = ASSETS_PATH + "bibtexRemove.xsl";
 
 	// myagenda
 	public String XML_DB = ASSETS_PATH + "myagenda.xml";
