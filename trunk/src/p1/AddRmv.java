@@ -56,11 +56,11 @@ public class AddRmv {
 	}
 
 	public static void main(String d[]) {
-		HashMap<String, String> hashMap = new HashMap<String, String>();
-		hashMap.put("newname", "numenou");
-		hashMap.put("newphone", "telnou");
-		addEntity(hashMap);
+//		HashMap<String, String> hashMap = new HashMap<String, String>();
+//		hashMap.put("newname", "numenou");
+//		hashMap.put("newphone", "telnou");
+//		addEntity(hashMap);
 
-//		deleteEntity("numenou");
+		deleteEntity("c3");
 	}
 }
