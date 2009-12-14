@@ -21,8 +21,10 @@ public class FOPPDF {
 
 	public static void main(String[] args) {
 		try {
-			File xmlFile = new File(Constants.XML_DB);
-			File xsltFile = new File(Constants.FOP_XSL);
+//			File xmlFile = new File(Constants.XML_DB);
+//			File xsltFile = new File(Constants.FOP_XSL);
+			File xmlFile = new File(Constants.XML_PATH);
+			File xsltFile = new File(Constants.FOP_BOOKS);
 			File pdfFile = new File(Constants.FOP_OUT);
 
 			FopFactory fopFactory = FopFactory.newInstance();
