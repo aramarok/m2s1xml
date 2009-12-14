@@ -23,9 +23,9 @@ public class FOPPDF {
 		try {
 //			File xmlFile = new File(Constants.XML_DB);
 //			File xsltFile = new File(Constants.FOP_XSL);
-			File xmlFile = new File(Constants.XML_PATH);
-			File xsltFile = new File(Constants.FOP_BOOKS);
-			File pdfFile = new File(Constants.FOP_OUT);
+			File xmlFile = new File(Constants.BIBTEX_XML_DB);
+			File xsltFile = new File(Constants.BIBTEX_FOP_XSL);
+			File pdfFile = new File(Constants.BIBTEX_FOP_OUT);
 
 			FopFactory fopFactory = FopFactory.newInstance();
 			FOUserAgent foUserAgent = fopFactory.newFOUserAgent();

@@ -1,10 +1,17 @@
 package p1;
 
+import java.io.File;
 import java.util.HashMap;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerConfigurationException;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.stream.StreamResult;
+import javax.xml.transform.stream.StreamSource;
 import javax.xml.xpath.XPath;
 import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathExpression;
@@ -25,13 +32,45 @@ public class Cautare {
 	public static void main(String[] args) {
 
 		try {
-			search("ANI", "1974");
+			remove("Bergamaschi1999");
+			
+			//search("ANI", "1974");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
 	}
 
+	public static String add(final String bibtexEntryId, final String bibtexEntryType, final HashMap<String, String> bittexEntryDetails) {
+		String outcome = null;
+		 
+		return outcome;
+	}
+	
+	
+	public static String remove(final String bibtexEntryId) {
+		String outcome = null;
+		try {
+			TransformerFactory transformerFactory = TransformerFactory
+					.newInstance();
+
+			Transformer transformer = transformerFactory
+					.newTransformer(new StreamSource(Constants.BIBTEX_XSL_REMOVE));
+
+			transformer.setParameter("removeEntryId", bibtexEntryId);
+
+			transformer.transform(new StreamSource(new File(Constants.BIBTEX_XML_DB)),
+					new StreamResult(new File(Constants.BIBTEX_XML_DB)));
+
+		} catch (TransformerConfigurationException tce) {
+			tce.printStackTrace();
+		} catch (TransformerException te) {
+			te.printStackTrace();
+		}
+		return outcome;
+	}
+	
+	
 	public static HashMap<String, String> search(final String searchBy,
 			final String value) {
 
@@ -55,7 +94,7 @@ public class Cautare {
 			
 			Document document = null;
 			try {
-				document = documentBuilder.parse(Constants.XML_PATH);
+				document = documentBuilder.parse(Constants.BIBTEX_XML_DB);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
