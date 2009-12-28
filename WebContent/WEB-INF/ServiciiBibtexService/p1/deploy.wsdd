@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from ServiciiBibtexService WSDL service -->
+
+  <service name="ServiciiBibtex" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://p1"/>
+      <parameter name="wsdlServiceElement" value="ServiciiBibtexService"/>
+      <parameter name="schemaQualified" value="http://p1"/>
+      <parameter name="wsdlServicePort" value="ServiciiBibtex"/>
+      <parameter name="className" value="p1.ServiciiBibtex"/>
+      <parameter name="wsdlPortType" value="ServiciiBibtex"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://p1" xmlns:retNS="http://p1" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="add" qname="operNS:add" returnQName="retNS:addReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://p1" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:entryXML" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://p1" xmlns:retNS="http://p1" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="remove" qname="operNS:remove" returnQName="retNS:removeReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://p1" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:bibtexEntryId" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://p1" xmlns:retNS="http://p1" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="search" qname="operNS:search" returnQName="retNS:searchReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://p1" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:searchBy" type="tns:string"/>
+        <parameter xmlns:pns="http://p1" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:value" type="tns:string"/>
+      </operation>
+      <parameter name="allowedMethods" value="remove search add"/>
+
+  </service>
+</deployment>

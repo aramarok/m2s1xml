@@ -4,6 +4,7 @@
   <parameter name="sendMultiRefs" value="true"/>
   <parameter name="disablePrettyXML" value="true"/>
   <parameter name="adminPassword" value="admin"/>
+  <parameter name="attachments.Directory" value="C:\Documents and Settings\admin\Desktop\master an II sem 1\DZaharie - CNE\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\m2s1xml\WEB-INF\attachments"/>
   <parameter name="dotNetSoapEncFix" value="true"/>
   <parameter name="enableNamespacePrefixOptimization" value="false"/>
   <parameter name="sendXMLDeclaration" value="true"/>
@@ -22,19 +23,25 @@
  <handler name="URLMapper" type="java:org.apache.axis.handlers.http.URLMapper"/>
  <handler name="LocalResponder" type="java:org.apache.axis.transport.local.LocalResponder"/>
  <handler name="Authenticate" type="java:org.apache.axis.handlers.SimpleAuthenticationHandler"/>
- <service name="Cautare" provider="java:RPC" style="wrapped" use="literal">
-  <operation name="search" qname="ns1:search" returnQName="ns1:searchReturn" returnType="ns2:Map" soapAction="" xmlns:ns1="http://p1" xmlns:ns2="http://xml.apache.org/xml-soap">
-   <parameter qname="ns1:searchBy" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
-   <parameter qname="ns1:value" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+ <service name="ServiciiBibtex" provider="java:RPC" style="wrapped" use="literal">
+  <operation name="add" qname="ns1:add" returnQName="ns1:addReturn" returnType="xsd:string" soapAction="" xmlns:ns1="http://p1" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <parameter qname="ns1:entryXML" type="xsd:string"/>
   </operation>
-  <parameter name="allowedMethods" value="search"/>
-  <parameter name="wsdlPortType" value="Cautare"/>
+  <operation name="remove" qname="ns2:remove" returnQName="ns2:removeReturn" returnType="xsd:string" soapAction="" xmlns:ns2="http://p1" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <parameter qname="ns2:bibtexEntryId" type="xsd:string"/>
+  </operation>
+  <operation name="search" qname="ns3:search" returnQName="ns3:searchReturn" returnType="xsd:string" soapAction="" xmlns:ns3="http://p1" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <parameter qname="ns3:searchBy" type="xsd:string"/>
+   <parameter qname="ns3:value" type="xsd:string"/>
+  </operation>
+  <parameter name="allowedMethods" value="remove search add"/>
   <parameter name="typeMappingVersion" value="1.2"/>
-  <parameter name="schemaQualified" value="http://xml.apache.org/xml-soap,http://p1"/>
-  <parameter name="wsdlServicePort" value="Cautare"/>
-  <parameter name="className" value="p1.Cautare"/>
+  <parameter name="wsdlPortType" value="ServiciiBibtex"/>
+  <parameter name="className" value="p1.ServiciiBibtex"/>
+  <parameter name="wsdlServicePort" value="ServiciiBibtex"/>
+  <parameter name="schemaQualified" value="http://p1"/>
   <parameter name="wsdlTargetNamespace" value="http://p1"/>
-  <parameter name="wsdlServiceElement" value="CautareService"/>
+  <parameter name="wsdlServiceElement" value="ServiciiBibtexService"/>
  </service>
  <service name="AdminService" provider="java:MSG">
   <parameter name="allowedMethods" value="AdminService"/>
