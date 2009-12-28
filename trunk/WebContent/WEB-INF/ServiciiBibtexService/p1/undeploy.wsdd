@@ -9,7 +9,7 @@
 <undeployment
     xmlns="http://xml.apache.org/axis/wsdd/">
 
-  <!-- Services from CautareService WSDL service -->
+  <!-- Services from ServiciiBibtexService WSDL service -->
 
-  <service name="Cautare"/>
+  <service name="ServiciiBibtex"/>
 </undeployment>

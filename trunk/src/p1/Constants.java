@@ -2,8 +2,8 @@ package p1;
 
 public interface Constants {
 
-	public String ASSETS_PATH = "../m2s1xml/WebContent/files/";
-	public String ASSETS_PATH2 = "../webapps/m2s1xml/files/";
+	//public String ASSETS_PATH = "../m2s1xml/WebContent/files/";
+	public String ASSETS_PATH = "../webapps/m2s1xml/files/";
 
 	// bibtex
 	public String BIBTEX_XML_DB = ASSETS_PATH + "bibtex.xml";
@@ -14,6 +14,8 @@ public interface Constants {
 	
 	public String BIBTEX_XSL_ADD = ASSETS_PATH + "bibtexAdd.xsl";
 	public String BIBTEX_XSL_REMOVE = ASSETS_PATH + "bibtexRemove.xsl";
+	
+	public String BIBTEX_XSL_SEARCH = ASSETS_PATH + "bibtexSearch.xsl";
 
 	// myagenda
 	public String XML_DB = ASSETS_PATH + "myagenda.xml";
