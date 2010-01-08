@@ -103,7 +103,7 @@ public class Cautare {
 			XPathFactory xPathFactory = XPathFactory.newInstance();
 			XPath xPath = xPathFactory.newXPath();
 
-			xPath.setNamespaceContext(new BibTexPrefix());
+			xPath.setNamespaceContext(new OldBibTexPrefix());
 
 			XPathExpression xPathExpression = null;
 			try {

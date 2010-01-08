@@ -5,7 +5,7 @@ import java.util.Iterator;
 import javax.xml.XMLConstants;
 import javax.xml.namespace.NamespaceContext;
 
-public class BibTexPrefix implements NamespaceContext {
+public class OldBibTexPrefix implements NamespaceContext {
 	public String getNamespaceURI(String prefix) {
 		if (prefix.equals("bibtex"))
 			return "http://bibtexml.sf.net/";
