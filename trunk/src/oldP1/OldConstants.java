@@ -13,7 +13,8 @@ public interface OldConstants {
 
 	String BIBTEX_XSL_ADD = ASSETS_PATH + "bibtexAdd.xsl";
 	String BIBTEX_XSL_REMOVE = ASSETS_PATH + "bibtexRemove.xsl";
-
+	String BIBTEX_XSL_SEARCH = ASSETS_PATH + "bibtexSearch.xsl";
+	
 	// myagenda
 	String XML_DB = ASSETS_PATH + "myagenda.xml";
 	String FOP_XSL = ASSETS_PATH + "xfo.xsl";
