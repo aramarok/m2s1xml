@@ -38,16 +38,14 @@ public class XMLBibtex {
 
 	}
 
-	public static String add(final String bibtexEntryId,
+	public static boolean add(final String bibtexEntryId,
 			final String bibtexEntryType,
 			final HashMap<String, String> bittexEntryDetails) {
-		String outcome = null;
 
-		return outcome;
+		return true;
 	}
 
-	public static String remove(final String bibtexEntryId) {
-		String outcome = null;
+	public static boolean remove(final String bibtexEntryId) {
 		try {
 			TransformerFactory transformerFactory = TransformerFactory
 					.newInstance();
@@ -64,13 +62,19 @@ public class XMLBibtex {
 
 		} catch (TransformerConfigurationException tce) {
 			tce.printStackTrace();
+			return false;
 		} catch (TransformerException te) {
 			te.printStackTrace();
+			return false;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
 		}
-		return outcome;
+		return true;
 	}
 
 	public void getPDFReport() {
+		// TODO
 		try {
 			File xmlFile = new File(Constants.BIBTEX_XML_DB);
 			File xsltFile = new File(Constants.BIBTEX_PDF_FOP_XSL);
