@@ -163,8 +163,7 @@ public class XMLBibtex {
 		return true;
 	}
 
-	public void getPDFReport() {
-		// TODO
+	public byte[] getPDFReport() {
 		try {
 			File xmlFile = new File(Constants.BIBTEX_XML_DB);
 			File xsltFile = new File(Constants.BIBTEX_PDF_FOP_XSL);
@@ -189,10 +188,13 @@ public class XMLBibtex {
 			} finally {
 				outputStream.close();
 			}
+			return Util.getBytesFromFile(pdfFile);
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.exit(-1);
 		}
+		return null;
+
 	}
 
 	public static String search(final String searchBy, final String value) {
