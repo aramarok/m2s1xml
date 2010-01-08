@@ -2,8 +2,8 @@ package m2s1xml;
 
 public interface Constants {
 
-	String ASSETS_PATH = "../m2s1xml/WebContent/files/";
-	String ASSETS_PATH2 = "../webapps/m2s1xml/files/";
+	String ASSETS_PATH = "../m2s1xml/WebContent/files/bibtex";
+	String ASSETS_PATH2 = "../webapps/m2s1xml/files/bibtex";
 
 	String BIBTEX_XML_DB = ASSETS_PATH + "bibtex.xml";
 	String BIBTEX_XSD = ASSETS_PATH + "bibtex.xsd";
