@@ -4,11 +4,10 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
+import java.io.StringWriter;
+import java.io.Writer;
 import java.util.HashMap;
 
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.Result;
 import javax.xml.transform.Source;
 import javax.xml.transform.Transformer;
@@ -18,26 +17,13 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.sax.SAXResult;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
-import javax.xml.xpath.XPath;
-import javax.xml.xpath.XPathConstants;
-import javax.xml.xpath.XPathExpression;
-import javax.xml.xpath.XPathExpressionException;
-import javax.xml.xpath.XPathFactory;
 
 import org.apache.fop.apps.FOUserAgent;
 import org.apache.fop.apps.Fop;
 import org.apache.fop.apps.FopFactory;
 import org.apache.fop.apps.MimeConstants;
-import org.w3c.dom.Document;
-import org.w3c.dom.NodeList;
 
 public class XMLBibtex {
-
-	private static String Q_AUTORI = "//bibtex:entry//*[bibtex:author[contains(upper-case(text()), upper-case('QPARAM'))]]";
-	private static String Q_ANI = "//bibtex:entry//*[bibtex:year[text() = QPARAM]]";
-	private static String Q_CUVINTE_CHEIE = "//bibtex:entry//*[bibtex:keywords[contains(upper-case(text()), upper-case('QPARAM'))]]";
-	private static String Q_REVISTA = "//bibtex:entry//*[bibtex:publisher[contains(upper-case(text()), upper-case('QPARAM'))]]";
-	private static String Q_EDITURA = "//bibtex:entry//*[bibtex:editor[contains(upper-case(text()), upper-case('QPARAM'))]]";
 
 	public static void main(String[] args) {
 
@@ -45,6 +31,7 @@ public class XMLBibtex {
 			remove("Bergamaschi1999");
 
 			// search("ANI", "1974");
+			// search("EDITOR", "Wasowski")
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -114,84 +101,36 @@ public class XMLBibtex {
 		}
 	}
 
-	public static HashMap<String, String> search(final String searchBy,
-			final String value) {
+	public static String search(final String searchBy, final String value) {
 
-		HashMap<String, String> outcome = new HashMap<String, String>();
+		String outcome = "";
 
-		String query = getQuery(searchBy, value);
-
-		if (query != null) {
-
-			DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory
+		try {
+			TransformerFactory transformerFactory = TransformerFactory
 					.newInstance();
-			documentBuilderFactory.setNamespaceAware(true);
 
-			DocumentBuilder documentBuilder = null;
-			try {
-				documentBuilder = documentBuilderFactory.newDocumentBuilder();
-			} catch (ParserConfigurationException e) {
-				e.printStackTrace();
-			}
+			Transformer transformer = transformerFactory
+					.newTransformer(new StreamSource(
+							Constants.BIBTEX_XSL_SEARCH));
 
-			Document document = null;
-			try {
-				document = documentBuilder.parse(Constants.BIBTEX_XML_DB);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+			transformer.setParameter("PARAM_NAME", searchBy);
+			transformer.setParameter("PARAM_VALUE", value);
 
-			XPathFactory xPathFactory = XPathFactory.newInstance();
-			XPath xPath = xPathFactory.newXPath();
+			Writer outWriter = new StringWriter();
 
-			xPath.setNamespaceContext(new BibTexPrefix());
+			transformer.transform(new StreamSource(new File(
+					Constants.BIBTEX_XML_DB)), new StreamResult(outWriter));
 
-			XPathExpression xPathExpression = null;
-			try {
-				xPathExpression = xPath.compile(query);
-			} catch (XPathExpressionException e) {
-				e.printStackTrace();
-			}
+			outcome = outWriter.toString();
 
-			Object object = null;
-			try {
-				object = xPathExpression.evaluate(document,
-						XPathConstants.NODESET);
-			} catch (XPathExpressionException e) {
-				e.printStackTrace();
-			}
-			NodeList listaNoduri = (NodeList) object;
-			for (int i = 0; i < listaNoduri.getLength(); i++) {
-				System.out.println(listaNoduri.item(i).getTextContent());
-				outcome.put(String.valueOf(i), listaNoduri.item(i)
-						.getTextContent());
-			}
+			System.out.println(outcome);
 
+		} catch (TransformerConfigurationException tce) {
+			tce.printStackTrace();
+		} catch (TransformerException te) {
+			te.printStackTrace();
 		}
 
 		return outcome;
-	}
-
-	private static String getQuery(String tip, String value) {
-
-		String query = null;
-
-		if ("AUTORI".equals(tip)) {
-			query = Q_AUTORI;
-		} else if ("ANI".equals(tip)) {
-			query = Q_ANI;
-		} else if ("CUVINTE_CHEIE".equals(tip)) {
-			query = Q_CUVINTE_CHEIE;
-		} else if ("REVISTA".equals(tip)) {
-			query = Q_REVISTA;
-		} else if ("EDITURA".equals(tip)) {
-			query = Q_EDITURA;
-		}
-
-		if (query != null) {
-			query = query.replace("QPARAM", value);
-		}
-
-		return query;
 	}
 }

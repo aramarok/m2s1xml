@@ -14,4 +14,5 @@ public interface Constants {
 	String BIBTEX_XSL_ADD = ASSETS_PATH + "bibtexAdd.xsl";
 	String BIBTEX_XSL_REMOVE = ASSETS_PATH + "bibtexRemove.xsl";
 
+	String BIBTEX_XSL_SEARCH = ASSETS_PATH + "bibtexSearch.xsl";
 }
