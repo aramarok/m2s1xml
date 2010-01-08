@@ -40,16 +40,17 @@ public class XMLBibtex {
 	public static void main(String[] args) {
 
 		try {
-			HashMap<String, String> bittexEntryDetails = new HashMap<String, String>();
-			bittexEntryDetails.put("author", "Mircea Eliade");
-			bittexEntryDetails.put("editor", "Eugen Simion");
-			bittexEntryDetails.put("title", "La tiganci");
-			bittexEntryDetails.put("publisher", "Editura RO");
-			bittexEntryDetails.put("year", "1969");
-			add("EliadeM1969LaTiganci", "book", bittexEntryDetails);
+			// HashMap<String, String> bittexEntryDetails = new HashMap<String,
+			// String>();
+			// bittexEntryDetails.put("author", "Mircea Eliade");
+			// bittexEntryDetails.put("editor", "Eugen Simion");
+			// bittexEntryDetails.put("title", "La tiganci");
+			// bittexEntryDetails.put("publisher", "Editura RO");
+			// bittexEntryDetails.put("year", "1969");
+			// add("EliadeM1969LaTiganci", "book", bittexEntryDetails);
 
 			// remove("EliadeM1969LaTiganci");
-			// search("ANI", "1974");
+			 System.out.println(search("ANI", "1974"));
 			// search("EDITOR", "Wasowski")
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -219,7 +220,7 @@ public class XMLBibtex {
 
 			outcome = outWriter.toString();
 
-			System.out.println(outcome);
+			//System.out.println(outcome);
 
 		} catch (TransformerConfigurationException tce) {
 			tce.printStackTrace();
