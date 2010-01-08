@@ -8,8 +8,16 @@
 package client;
 
 public interface XMLBibtex extends java.rmi.Remote {
-    public boolean add(java.lang.String bibtexEntryId, java.lang.String bibtexEntryType, java.util.HashMap bittexEntryDetails) throws java.rmi.RemoteException;
-    public boolean remove(java.lang.String bibtexEntryId) throws java.rmi.RemoteException;
-    public java.lang.String search(java.lang.String searchBy, java.lang.String value) throws java.rmi.RemoteException;
-    public byte[] getPDFReport() throws java.rmi.RemoteException;
+	public boolean add(java.lang.String bibtexEntryId,
+			java.lang.String bibtexEntryType,
+			java.util.HashMap bittexEntryDetails)
+			throws java.rmi.RemoteException;
+
+	public boolean remove(java.lang.String bibtexEntryId)
+			throws java.rmi.RemoteException;
+
+	public java.lang.String search(java.lang.String searchBy,
+			java.lang.String value) throws java.rmi.RemoteException;
+
+	public byte[] getPDFReport() throws java.rmi.RemoteException;
 }

@@ -8,9 +8,11 @@
 package client;
 
 public interface XMLBibtexService extends javax.xml.rpc.Service {
-    public java.lang.String getXMLBibtexAddress();
+	public java.lang.String getXMLBibtexAddress();
 
-    public client.XMLBibtex getXMLBibtex() throws javax.xml.rpc.ServiceException;
+	public client.XMLBibtex getXMLBibtex()
+			throws javax.xml.rpc.ServiceException;
 
-    public client.XMLBibtex getXMLBibtex(java.net.URL portAddress) throws javax.xml.rpc.ServiceException;
+	public client.XMLBibtex getXMLBibtex(java.net.URL portAddress)
+			throws javax.xml.rpc.ServiceException;
 }

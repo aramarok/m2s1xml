@@ -6,10 +6,9 @@
 <!--   java org.apache.axis.utils.Admin client|server undeploy.wsdd -->
 <!--      from the same directory that the Axis engine runs         -->
 
-<undeployment
-    xmlns="http://xml.apache.org/axis/wsdd/">
+<undeployment xmlns="http://xml.apache.org/axis/wsdd/">
 
-  <!-- Services from XMLBibtexService WSDL service -->
+	<!-- Services from XMLBibtexService WSDL service -->
 
-  <service name="XMLBibtex"/>
+	<service name="XMLBibtex" />
 </undeployment>

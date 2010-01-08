@@ -50,7 +50,7 @@ public class XMLBibtex {
 			// add("EliadeM1969LaTiganci", "book", bittexEntryDetails);
 
 			// remove("EliadeM1969LaTiganci");
-			 System.out.println(search("ANI", "1974"));
+			System.out.println(search("ANI", "1974"));
 			// search("EDITOR", "Wasowski")
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -220,7 +220,7 @@ public class XMLBibtex {
 
 			outcome = outWriter.toString();
 
-			//System.out.println(outcome);
+			// System.out.println(outcome);
 
 		} catch (TransformerConfigurationException tce) {
 			tce.printStackTrace();
