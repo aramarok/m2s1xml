@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <xsl:stylesheet version="1.0"
-	xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
-	xmlns:bibtex="http://bibtexml.sf.net/" >
+	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+	xmlns:bibtex="http://bibtexml.sf.net/">
 
 	<xsl:output method="xml" indent="yes" />
 
@@ -22,7 +22,8 @@
 		<xsl:value-of select="$newline" />
 		<xsl:text disable-output-escaping="yes">&lt;bibtex:file&gt;</xsl:text>
 		<xsl:value-of select="$newline" />
-		<xsl:apply-templates select="//bibtex:entry[compare(attribute(id), $removeEntryId) != 0]" />
+		<xsl:apply-templates
+			select="//bibtex:entry[compare(attribute(id), $removeEntryId) != 0]" />
 		<xsl:value-of select="$newline" />
 		<xsl:text disable-output-escaping="yes">&lt;/bibtex:file&gt;</xsl:text>
 	</xsl:template>
