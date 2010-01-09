@@ -1,7 +1,7 @@
 <html>
-<title>m2s1xml - Search</title>
+<title>m2s1xml - Remove</title>
 <head>
-<h1>Search</h1>
+<h1>Remove</h1>
 </head>
 <body>
 <h2>XForm and consuming WS in progress...</h2>
