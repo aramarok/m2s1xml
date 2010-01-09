@@ -5,11 +5,10 @@
 <html>
 <title>m2s1xml</title>
 <head>
-<h1>m2s1xml</h1>
 </head>
+<h1>m2s1xml</h1>
 <body>
-<h2>Operations
-<h2>
+<h2>Operations</h2>
 <%
 	String strInputMenu = "../webapps/m2s1xml/pages/menu/menuItems.xml";
 	XMLParserMenuItems xmlp = new XMLParserMenuItems();
