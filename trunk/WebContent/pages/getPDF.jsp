@@ -45,11 +45,17 @@
 	<xhtml:br />
 	<xhtml:br />
 	<xhtml:hr />
-	<p>TODO: mediatype="application/pdf" se pare ca nu merge ...</p>
+
+	<!--<p>TODO: mediatype="application/pdf" se pare ca nu merge ...</p>-->
+
 	<xforms:group ref="instance('response-bibtex')/soap-env:Body">
+		<!--
 		<xforms:output value="service:getPDFReportResponse"
 			mediatype="application/pdf" width="100%" height="800px"
-			align="middle" />
+			align="middle" /> -->
+		<xforms:label>
+			<a href="../files/bibtex/bibtex.pdf">Download link</a>
+		</xforms:label>
 	</xforms:group>
 
 </xhtml:body>
