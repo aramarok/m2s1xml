@@ -49,9 +49,8 @@
 	</xforms:input>
 
 	<xforms:trigger>
-		<xforms:label>Send</xforms:label>
-		<xforms:send submission="bibtex_search"
-			ev:event="DOMActivate" />
+		<xforms:label>Search</xforms:label>
+		<xforms:send submission="bibtex_search" ev:event="DOMActivate" />
 	</xforms:trigger>
 
 	<xhtml:br />
@@ -59,7 +58,7 @@
 	<xhtml:hr />
 
 	<xforms:group ref="instance('response-bibtex')/soap-env:Body">
-		<xforms:output value="service:searchResponse" />
+		<xforms:output value="service:searchResponse" mediatype="text/html" />
 	</xforms:group>
 
 </xhtml:body>

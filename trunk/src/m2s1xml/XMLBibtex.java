@@ -35,6 +35,8 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
+import util.HTMLEscapeChars;
+
 public class XMLBibtex {
 
 	public static void main(String[] args) {
@@ -218,9 +220,9 @@ public class XMLBibtex {
 			transformer.transform(new StreamSource(new File(
 					Constants.BIBTEX_XML_DB)), new StreamResult(outWriter));
 
+//			outcome = HTMLEscapeChars.string2HTML(outWriter.toString());
 			outcome = outWriter.toString();
-
-			// System.out.println(outcome);
+//			System.out.println(outcome);
 
 		} catch (TransformerConfigurationException tce) {
 			tce.printStackTrace();
