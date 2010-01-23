@@ -47,7 +47,7 @@
 	<xhtml:br />
 	<xhtml:hr />
 
-	<p>Result:</p>
+	Result: 
 	<xforms:group ref="instance('response-bibtex')/soap-env:Body">
 		<xforms:output value="service:removeResponse" />
 	</xforms:group>
