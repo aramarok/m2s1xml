@@ -6,10 +6,10 @@
 	</property>
 
 	<target name="deploy">
-		<delete dir="${tomcatpath}/webapps/orbeon" />
+		<!--<delete dir="${tomcatpath}/webapps/orbeon" />
 		<copy todir="${tomcatpath}/webapps/orbeon">
 			<fileset dir="orbeon" />
-		</copy>
+		</copy>-->
 
 		<delete dir="${tomcatpath}/webapps/m2s1xml" />
 		<copy todir="${tomcatpath}/webapps/m2s1xml">
