@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<project default="deploy" basedir=".">
+
+	<property file="util/${user.name}.properties">
+	</property>
+
+	<target name="deploy">
+		<delete dir="${tomcatpath}/webapps/orbeon" />
+		<copy todir="${tomcatpath}/webapps/orbeon">
+			<fileset dir="orbeon" />
+		</copy>
+
+		<delete dir="${tomcatpath}/webapps/m2s1xml" />
+		<copy todir="${tomcatpath}/webapps/m2s1xml">
+			<fileset dir="WebContent" excludes="**/p1client/**" />
+		</copy>
+	</target>
+</project>

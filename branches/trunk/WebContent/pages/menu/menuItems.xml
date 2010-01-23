@@ -1,0 +1,14 @@
+<xml>
+	<menuItems>
+		<menuItem id="_1_" name="Test XFORMS page" link="/m2s1xml/pages/test_xforms.jsp">
+		</menuItem>
+		<menuItem id="add" name="Add entry" link="/m2s1xml/pages/add.jsp">
+		</menuItem>
+		<menuItem id="remove" name="Remove entry" link="/m2s1xml/pages/remove.jsp">
+		</menuItem>
+		<menuItem id="search" name="Search" link="/m2s1xml/pages/search.jsp">
+		</menuItem>
+		<menuItem id="getPDF" name="Get PDF" link="/m2s1xml/pages/getPDF.jsp">
+		</menuItem>
+	</menuItems>
+</xml>

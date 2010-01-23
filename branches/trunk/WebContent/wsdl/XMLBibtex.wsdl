@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://m2s1xml"
+	xmlns:apachesoap="http://xml.apache.org/xml-soap"
+	xmlns:impl="http://m2s1xml" xmlns:intf="http://m2s1xml"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<!--WSDL created by Apache Axis version: 1.4
+		Built on Apr 22, 2006 (06:55:48 PDT)-->
+	<wsdl:types>
+		<schema elementFormDefault="qualified"
+			targetNamespace="http://m2s1xml"
+			xmlns="http://www.w3.org/2001/XMLSchema">
+			<import namespace="http://xml.apache.org/xml-soap" />
+			<element name="add">
+				<complexType>
+					<sequence>
+						<element name="bibtexEntryId" type="xsd:string" />
+						<element name="bibtexEntryType"
+							type="xsd:string" />
+						<element name="bittexEntryDetails"
+							type="apachesoap:Map" />
+					</sequence>
+				</complexType>
+			</element>
+			<element name="addResponse">
+				<complexType>
+					<sequence>
+						<element name="addReturn" type="xsd:boolean" />
+					</sequence>
+				</complexType>
+			</element>
+			<element name="remove">
+				<complexType>
+					<sequence>
+						<element name="bibtexEntryId" type="xsd:string" />
+					</sequence>
+				</complexType>
+			</element>
+			<element name="removeResponse">
+				<complexType>
+					<sequence>
+						<element name="removeReturn" type="xsd:boolean" />
+					</sequence>
+				</complexType>
+			</element>
+			<element name="search">
+				<complexType>
+					<sequence>
+						<element name="searchBy" type="xsd:string" />
+						<element name="value" type="xsd:string" />
+					</sequence>
+				</complexType>
+			</element>
+			<element name="searchResponse">
+				<complexType>
+					<sequence>
+						<element name="searchReturn" type="xsd:string" />
+					</sequence>
+				</complexType>
+			</element>
+			<element name="getPDFReport">
+				<complexType />
+			</element>
+			<element name="getPDFReportResponse">
+				<complexType>
+					<sequence>
+						<element name="getPDFReportReturn"
+							type="xsd:base64Binary" />
+					</sequence>
+				</complexType>
+			</element>
+		</schema>
+		<schema elementFormDefault="qualified"
+			targetNamespace="http://xml.apache.org/xml-soap"
+			xmlns="http://www.w3.org/2001/XMLSchema">
+			<complexType name="mapItem">
+				<sequence>
+					<element name="key" nillable="true"
+						type="xsd:anyType" />
+					<element name="value" nillable="true"
+						type="xsd:anyType" />
+				</sequence>
+			</complexType>
+			<complexType name="Map">
+				<sequence>
+					<element maxOccurs="unbounded" minOccurs="0"
+						name="item" type="apachesoap:mapItem" />
+				</sequence>
+			</complexType>
+		</schema>
+	</wsdl:types>
+
+	<wsdl:message name="removeRequest">
+
+		<wsdl:part element="impl:remove" name="parameters" />
+
+	</wsdl:message>
+
+	<wsdl:message name="getPDFReportResponse">
+
+		<wsdl:part element="impl:getPDFReportResponse"
+			name="parameters" />
+
+	</wsdl:message>
+
+	<wsdl:message name="addRequest">
+
+		<wsdl:part element="impl:add" name="parameters" />
+
+	</wsdl:message>
+
+	<wsdl:message name="addResponse">
+
+		<wsdl:part element="impl:addResponse" name="parameters" />
+
+	</wsdl:message>
+
+	<wsdl:message name="getPDFReportRequest">
+
+		<wsdl:part element="impl:getPDFReport" name="parameters" />
+
+	</wsdl:message>
+
+	<wsdl:message name="searchRequest">
+
+		<wsdl:part element="impl:search" name="parameters" />
+
+	</wsdl:message>
+
+	<wsdl:message name="removeResponse">
+
+		<wsdl:part element="impl:removeResponse" name="parameters" />
+
+	</wsdl:message>
+
+	<wsdl:message name="searchResponse">
+
+		<wsdl:part element="impl:searchResponse" name="parameters" />
+
+	</wsdl:message>
+
+	<wsdl:portType name="XMLBibtex">
+
+		<wsdl:operation name="add">
+
+			<wsdl:input message="impl:addRequest" name="addRequest" />
+
+			<wsdl:output message="impl:addResponse" name="addResponse" />
+
+		</wsdl:operation>
+
+		<wsdl:operation name="remove">
+
+			<wsdl:input message="impl:removeRequest"
+				name="removeRequest" />
+
+			<wsdl:output message="impl:removeResponse"
+				name="removeResponse" />
+
+		</wsdl:operation>
+
+		<wsdl:operation name="search">
+
+			<wsdl:input message="impl:searchRequest"
+				name="searchRequest" />
+
+			<wsdl:output message="impl:searchResponse"
+				name="searchResponse" />
+
+		</wsdl:operation>
+
+		<wsdl:operation name="getPDFReport">
+
+			<wsdl:input message="impl:getPDFReportRequest"
+				name="getPDFReportRequest" />
+
+			<wsdl:output message="impl:getPDFReportResponse"
+				name="getPDFReportResponse" />
+
+		</wsdl:operation>
+
+	</wsdl:portType>
+
+	<wsdl:binding name="XMLBibtexSoapBinding" type="impl:XMLBibtex">
+
+		<wsdlsoap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+
+		<wsdl:operation name="add">
+
+			<wsdlsoap:operation soapAction="" />
+
+			<wsdl:input name="addRequest">
+
+				<wsdlsoap:body use="literal" />
+
+			</wsdl:input>
+
+			<wsdl:output name="addResponse">
+
+				<wsdlsoap:body use="literal" />
+
+			</wsdl:output>
+
+		</wsdl:operation>
+
+		<wsdl:operation name="remove">
+
+			<wsdlsoap:operation soapAction="" />
+
+			<wsdl:input name="removeRequest">
+
+				<wsdlsoap:body use="literal" />
+
+			</wsdl:input>
+
+			<wsdl:output name="removeResponse">
+
+				<wsdlsoap:body use="literal" />
+
+			</wsdl:output>
+
+		</wsdl:operation>
+
+		<wsdl:operation name="search">
+
+			<wsdlsoap:operation soapAction="" />
+
+			<wsdl:input name="searchRequest">
+
+				<wsdlsoap:body use="literal" />
+
+			</wsdl:input>
+
+			<wsdl:output name="searchResponse">
+
+				<wsdlsoap:body use="literal" />
+
+			</wsdl:output>
+
+		</wsdl:operation>
+
+		<wsdl:operation name="getPDFReport">
+
+			<wsdlsoap:operation soapAction="" />
+
+			<wsdl:input name="getPDFReportRequest">
+
+				<wsdlsoap:body use="literal" />
+
+			</wsdl:input>
+
+			<wsdl:output name="getPDFReportResponse">
+
+				<wsdlsoap:body use="literal" />
+
+			</wsdl:output>
+
+		</wsdl:operation>
+
+	</wsdl:binding>
+
+	<wsdl:service name="XMLBibtexService">
+
+		<wsdl:port binding="impl:XMLBibtexSoapBinding"
+			name="XMLBibtex">
+
+			<wsdlsoap:address
+				location="http://localhost:8080/m2s1xml/services/XMLBibtex" />
+
+		</wsdl:port>
+
+	</wsdl:service>
+
+</wsdl:definitions>

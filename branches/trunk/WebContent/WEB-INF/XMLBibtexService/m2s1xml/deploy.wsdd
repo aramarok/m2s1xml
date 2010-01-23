@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         -->
+<deployment xmlns="http://xml.apache.org/axis/wsdd/"
+	xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+	<!-- Services from XMLBibtexService WSDL service -->
+
+	<service name="XMLBibtex" provider="java:RPC" style="wrapped"
+		use="literal">
+		<parameter name="wsdlTargetNamespace" value="http://m2s1xml" />
+		<parameter name="wsdlServiceElement" value="XMLBibtexService" />
+		<parameter name="schemaQualified"
+			value="http://xml.apache.org/xml-soap,http://m2s1xml" />
+		<parameter name="wsdlServicePort" value="XMLBibtex" />
+		<parameter name="className" value="m2s1xml.XMLBibtex" />
+		<parameter name="wsdlPortType" value="XMLBibtex" />
+		<parameter name="typeMappingVersion" value="1.2" />
+		<operation xmlns:operNS="http://m2s1xml"
+			xmlns:retNS="http://m2s1xml"
+			xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="add"
+			qname="operNS:add" returnQName="retNS:addReturn"
+			returnType="rtns:boolean" soapAction="">
+			<parameter xmlns:pns="http://m2s1xml"
+				xmlns:tns="http://www.w3.org/2001/XMLSchema"
+				qname="pns:bibtexEntryId" type="tns:string" />
+			<parameter xmlns:pns="http://m2s1xml"
+				xmlns:tns="http://www.w3.org/2001/XMLSchema"
+				qname="pns:bibtexEntryType" type="tns:string" />
+			<parameter xmlns:pns="http://m2s1xml"
+				xmlns:tns="http://xml.apache.org/xml-soap"
+				qname="pns:bittexEntryDetails" type="tns:Map" />
+		</operation>
+		<operation xmlns:operNS="http://m2s1xml"
+			xmlns:retNS="http://m2s1xml"
+			xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="remove"
+			qname="operNS:remove" returnQName="retNS:removeReturn"
+			returnType="rtns:boolean" soapAction="">
+			<parameter xmlns:pns="http://m2s1xml"
+				xmlns:tns="http://www.w3.org/2001/XMLSchema"
+				qname="pns:bibtexEntryId" type="tns:string" />
+		</operation>
+		<operation xmlns:operNS="http://m2s1xml"
+			xmlns:retNS="http://m2s1xml"
+			xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="search"
+			qname="operNS:search" returnQName="retNS:searchReturn"
+			returnType="rtns:string" soapAction="">
+			<parameter xmlns:pns="http://m2s1xml"
+				xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:searchBy"
+				type="tns:string" />
+			<parameter xmlns:pns="http://m2s1xml"
+				xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:value"
+				type="tns:string" />
+		</operation>
+		<operation xmlns:operNS="http://m2s1xml"
+			xmlns:retNS="http://m2s1xml"
+			xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getPDFReport"
+			qname="operNS:getPDFReport" returnQName="retNS:getPDFReportReturn"
+			returnType="rtns:base64Binary" soapAction="">
+		</operation>
+		<parameter name="allowedMethods"
+			value="remove getPDFReport search add" />
+
+	</service>
+</deployment>
