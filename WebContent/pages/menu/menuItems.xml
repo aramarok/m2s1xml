@@ -2,9 +2,9 @@
 	<menuItems>
 		<menuItem id="home" name="Index" link="/m2s1xml/index.jsp">
 		</menuItem>
-		<menuItem id="add" name="Add entry" link="/m2s1xml/pages/add.jsp">
+		<menuItem id="add" name="Add Entry" link="/m2s1xml/pages/add.jsp">
 		</menuItem>
-		<menuItem id="remove" name="Remove entry" link="/m2s1xml/pages/remove.jsp">
+		<menuItem id="remove" name="Remove Entry" link="/m2s1xml/pages/remove.jsp">
 		</menuItem>
 		<menuItem id="search" name="Search" link="/m2s1xml/pages/search.jsp">
 		</menuItem>

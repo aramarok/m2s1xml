@@ -2,7 +2,7 @@ package m2s1xml;
 
 public interface Constants {
 
-	// String ASSETS_PATH = "../m2s1xml/WebContent/files/bibtex/";
+	 //String ASSETS_PATH = "../m2s1xml/WebContent/files/bibtex/";
 
 	// TODO: uncomment before deploy
 	String ASSETS_PATH = "../webapps/m2s1xml/files/bibtex/";
