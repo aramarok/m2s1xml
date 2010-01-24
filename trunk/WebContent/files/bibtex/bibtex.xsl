@@ -229,6 +229,17 @@
 										</xsl:otherwise>
 									</xsl:choose>
 
+									<!-- sa nu crape -->
+									<fo:table-row>
+			<fo:table-cell display-align="center">
+				<fo:block text-align="left">
+				</fo:block>
+			</fo:table-cell>
+		</fo:table-row>
+									
+									
+									
+									
 								</fo:table-body>
 							</fo:table>
 						</fo:inline>
