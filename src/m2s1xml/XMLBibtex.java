@@ -9,6 +9,7 @@ import java.io.Writer;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Set;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -60,13 +61,22 @@ public class XMLBibtex {
 
 	public static boolean add(final String bibtexEntryId,
 			final String bibtexEntryType,
-			final HashMap<String, String> bittexEntryDetails) {
+			final HashMap<String, String> bibtexEntryDetails) {
 
 		// TODO: add validation
 
 		if (bibtexEntryId != null && bibtexEntryType != null
-				&& bittexEntryDetails != null) {
+				&& bibtexEntryDetails != null) {
 			try {
+				
+				// DEBUG:
+				Set<String> keys = bibtexEntryDetails.keySet();
+				System.out.println("DEBUG: bibtexEntryDetails");
+				for (String key : keys) {
+					String value = bibtexEntryDetails.get(key).toString();
+					System.out.println("key=" + key + ", value=" + value);
+				}
+
 				File dbDocFile = new File(Constants.BIBTEX_XML_DB);
 
 				Document dbDoc;
@@ -95,7 +105,7 @@ public class XMLBibtex {
 						.createElement(Constants.XML_BIBTEX + bibtexEntryType);
 				Element bibtexEntryType__ = null;
 
-				Iterator<Map.Entry<String, String>> iterator = bittexEntryDetails
+				Iterator<Map.Entry<String, String>> iterator = bibtexEntryDetails
 						.entrySet().iterator();
 				Map.Entry<String, String> entry = null;
 
