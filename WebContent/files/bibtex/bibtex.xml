@@ -296,11 +296,11 @@
 	</bibtex:entry>
 	<bibtex:entry id="testid">
 		<bibtex:book>
-			<bibtex:year>1969</bibtex:year>
-			<bibtex:title>La tiganci</bibtex:title>
-			<bibtex:publisher>Editura RO</bibtex:publisher>
 			<bibtex:author>Mircea Eliade</bibtex:author>
 			<bibtex:editor>Eugen Simion</bibtex:editor>
+			<bibtex:title>La tiganci</bibtex:title>
+			<bibtex:publisher>Editura RO</bibtex:publisher>
+			<bibtex:year>1969</bibtex:year>
 		</bibtex:book>
 	</bibtex:entry>
 </bibtex:file>
