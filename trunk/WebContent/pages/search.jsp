@@ -4,7 +4,8 @@
 	xmlns:xhtml="http://www.w3.org/1999/xhtml"
 	xmlns:ev="http://www.w3.org/2001/xml-events"
 	xmlns:soap-env="http://schemas.xmlsoap.org/soap/envelope/"
-	xmlns:service="http://www.webservicex.net">
+	xmlns:service="http://www.webservicex.net"
+	xmlns:xf="http://www.w3.org/2002/xforms">
 
 <xhtml:head>
 	<xhtml:title>Bibtex</xhtml:title>
@@ -39,10 +40,36 @@
 	<h1>Search Bibtext</h1>
 	<xhtml:br />
 
-	<xforms:input
+
+	<xf:select1
 		ref="instance('request-bibtex')/soap-env:Body/service:search/service:searchBy">
-		<xforms:label>Criteria: </xforms:label>
-	</xforms:input>
+		<xf:label>Criteria:</xf:label>
+		<xf:item>
+			<xf:label>Toate</xf:label>
+			<xf:value>ALL</xf:value>
+		</xf:item>
+		<xf:item>
+			<xf:label>Ani</xf:label>
+			<xf:value>ANI</xf:value>
+		</xf:item>
+		<xf:item>
+			<xf:label>Autori</xf:label>
+			<xf:value>AUTORI</xf:value>
+		</xf:item>
+		<xf:item>
+			<xf:label>Keywords</xf:label>
+			<xf:value>KEYWORDS</xf:value>
+		</xf:item>
+		<xf:item>
+			<xf:label>Publisher</xf:label>
+			<xf:value>PUBLISHER</xf:value>
+		</xf:item>
+		<xf:item>
+			<xf:label>Editor</xf:label>
+			<xf:value>EDITOR</xf:value>
+		</xf:item>
+	</xf:select1>
+
 	<xforms:input
 		ref="instance('request-bibtex')/soap-env:Body/service:search/service:value">
 		<xforms:label>Parameter: </xforms:label>
