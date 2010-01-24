@@ -44,9 +44,9 @@
 							<item> <key>author</key> <value>author</value> </item>
 							<item> <key>title</key> <value>title</value> </item>
 							<item> <key>journal</key> <value>journal</value> </item>
-							<item> <key>year</key> <value>year</value> </item>
+							<item> <key>year</key> <value>0</value> </item>
 							<item> <key>volume</key> <value>volume</value> </item>
-							<item> <key>pages</key> <value>pages</value> </item>
+							<item> <key>pages</key> <value>0</value> </item>
 						</service:bittexEntryDetails>
 					</service:add>
 				</soap-env:Body>
@@ -67,7 +67,7 @@
 							<item> <key>author</key> <value>author</value> </item>
 							<item> <key>title</key> <value>title</value> </item>
 							<item> <key>booktitle</key> <value>booktitle</value> </item>
-							<item> <key>year</key> <value>year</value> </item>
+							<item> <key>year</key> <value>0</value> </item>
 							<item> <key>editor</key> <value>editor</value> </item>
 							<item> <key>publisher</key> <value>publisher</value> </item>
 							<item> <key>pages</key> <value>0</value> </item>
