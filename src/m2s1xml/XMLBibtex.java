@@ -166,6 +166,20 @@ public class XMLBibtex {
 
 	public byte[] getPDFReport() {
 		try {
+
+			getPDFReport("ALL", "ALL");
+
+			return Util.getBytesFromFile(new File(Constants.BIBTEX_PDF_FOP_OUT));
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.exit(-1);
+		}
+		return null;
+	}
+
+	public static byte[] getPDFReport(final String searchBy, final String value) {
+		try {
 			File xmlFile = new File(Constants.BIBTEX_XML_DB);
 			File xsltFile = new File(Constants.BIBTEX_PDF_FOP_XSL);
 			File pdfFile = new File(Constants.BIBTEX_PDF_FOP_OUT);
@@ -183,6 +197,10 @@ public class XMLBibtex {
 				Transformer transformer = transformerFactory
 						.newTransformer(new StreamSource(xsltFile));
 				transformer.setParameter("versionParam", "2.0");
+
+				transformer.setParameter("PARAM_NAME", searchBy);
+				transformer.setParameter("PARAM_VALUE", value);
+
 				Source source = new StreamSource(xmlFile);
 				Result result = new SAXResult(fop.getDefaultHandler());
 				transformer.transform(source, result);
@@ -195,7 +213,6 @@ public class XMLBibtex {
 			System.exit(-1);
 		}
 		return null;
-
 	}
 
 	public static String search(final String searchBy, final String value) {
@@ -218,9 +235,9 @@ public class XMLBibtex {
 			transformer.transform(new StreamSource(new File(
 					Constants.BIBTEX_XML_DB)), new StreamResult(outWriter));
 
-//			outcome = HTMLEscapeChars.string2HTML(outWriter.toString());
 			outcome = outWriter.toString();
-//			System.out.println(outcome);
+
+			getPDFReport(searchBy, value);
 
 		} catch (TransformerConfigurationException tce) {
 			tce.printStackTrace();

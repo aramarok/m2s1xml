@@ -11,6 +11,9 @@
 		<html>
 			<body>
 				<h2>Results</h2>
+				<h4>
+					<a href="../files/bibtex/bibtex.pdf">[download]</a>
+				</h4>
 				<table border="1">
 					<tr bgcolor="#9acd32">
 						<th>Author</th>
@@ -78,9 +81,16 @@
 							</xsl:for-each>
 						</xsl:when>
 						<xsl:otherwise>
-							<xsl:text disable-output-escaping="no">
-								NO RESULTS !
-							</xsl:text>
+							<xsl:for-each
+								select="bibtex:file/bibtex:entry/*">
+								<xsl:call-template
+									name="createoutput">
+									<xsl:with-param name="author"
+										select="bibtex:author" />
+									<xsl:with-param name="title"
+										select="bibtex:title" />
+								</xsl:call-template>
+							</xsl:for-each>
 						</xsl:otherwise>
 					</xsl:choose>
 				</table>
@@ -102,4 +112,3 @@
 	</xsl:template>
 
 </xsl:stylesheet>
-
