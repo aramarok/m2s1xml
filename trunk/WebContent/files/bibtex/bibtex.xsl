@@ -3,6 +3,12 @@
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 	xmlns:fo="http://www.w3.org/1999/XSL/Format"
 	xmlns:bibtex="http://bibtexml.sf.net/">
+
+
+	<xsl:param name="PARAM_VALUE" select="ANI" />
+	<xsl:param name="PARAM_NAME" select="1974" />
+
+
 	<xsl:template match="/">
 		<fo:root xmlns:fo="http://www.w3.org/1999/XSL/Format">
 			<fo:layout-master-set>
@@ -107,51 +113,122 @@
 								<fo:table-column
 									column-width="proportional-column-width(1)" />
 								<fo:table-body>
-									<xsl:for-each
-										select="//bibtex:book">
-										<fo:table-row>
-											<fo:table-cell
-												display-align="center">
-												<fo:block
-													text-align="left">
-													<xsl:value-of
-														select="bibtex:author" />
-												</fo:block>
-											</fo:table-cell>
-											<fo:table-cell
-												display-align="center">
-												<fo:block
-													text-align="left">
-													<xsl:value-of
-														select="bibtex:title" />
-												</fo:block>
-											</fo:table-cell>
-											<fo:table-cell
-												display-align="center">
-												<fo:block
-													text-align="left">
-													<xsl:value-of
-														select="bibtex:publisher" />
-												</fo:block>
-											</fo:table-cell>
-											<fo:table-cell
-												display-align="center">
-												<fo:block
-													text-align="left">
-													<xsl:value-of
-														select="bibtex:year" />
-												</fo:block>
-											</fo:table-cell>
-											<fo:table-cell
-												display-align="center">
-												<fo:block
-													text-align="left">
-													<xsl:value-of
-														select="bibtex:pages" />
-												</fo:block>
-											</fo:table-cell>
-										</fo:table-row>
-									</xsl:for-each>
+									<xsl:choose>
+										<xsl:when
+											test="$PARAM_NAME = 'ANI'">
+											<xsl:for-each
+												select="bibtex:file/bibtex:entry//*[bibtex:year[text() = $PARAM_VALUE]]">
+												<xsl:call-template
+													name="create-pdf-row">
+													<xsl:with-param
+														name="author" select="bibtex:author" />
+													<xsl:with-param
+														name="title" select="bibtex:title" />
+													<xsl:with-param
+														name="publisher" select="bibtex:publisher" />
+													<xsl:with-param
+														name="year" select="bibtex:year" />
+													<xsl:with-param
+														name="pages" select="bibtex:pages" />
+												</xsl:call-template>
+											</xsl:for-each>
+										</xsl:when>
+										<xsl:when
+											test="$PARAM_NAME = 'AUTORI'">
+											<xsl:for-each
+												select="bibtex:file/bibtex:entry//*[bibtex:author[contains(upper-case(text()), upper-case($PARAM_VALUE))]]">
+												<xsl:call-template
+													name="create-pdf-row">
+													<xsl:with-param
+														name="author" select="bibtex:author" />
+													<xsl:with-param
+														name="title" select="bibtex:title" />
+													<xsl:with-param
+														name="publisher" select="bibtex:publisher" />
+													<xsl:with-param
+														name="year" select="bibtex:year" />
+													<xsl:with-param
+														name="pages" select="bibtex:pages" />
+												</xsl:call-template>
+											</xsl:for-each>
+										</xsl:when>
+										<xsl:when
+											test="$PARAM_NAME = 'KEYWORDS'">
+											<xsl:for-each
+												select="bibtex:file/bibtex:entry//*[bibtex:keywords[contains(upper-case(text()), upper-case($PARAM_VALUE))]]">
+												<xsl:call-template
+													name="create-pdf-row">
+													<xsl:with-param
+														name="author" select="bibtex:author" />
+													<xsl:with-param
+														name="title" select="bibtex:title" />
+													<xsl:with-param
+														name="publisher" select="bibtex:publisher" />
+													<xsl:with-param
+														name="year" select="bibtex:year" />
+													<xsl:with-param
+														name="pages" select="bibtex:pages" />
+												</xsl:call-template>
+											</xsl:for-each>
+										</xsl:when>
+										<xsl:when
+											test="$PARAM_NAME = 'PUBLISHER'">
+											<xsl:for-each
+												select="bibtex:file/bibtex:entry//*[bibtex:publisher[contains(upper-case(text()), upper-case($PARAM_VALUE))]]">
+												<xsl:call-template
+													name="create-pdf-row">
+													<xsl:with-param
+														name="author" select="bibtex:author" />
+													<xsl:with-param
+														name="title" select="bibtex:title" />
+													<xsl:with-param
+														name="publisher" select="bibtex:publisher" />
+													<xsl:with-param
+														name="year" select="bibtex:year" />
+													<xsl:with-param
+														name="pages" select="bibtex:pages" />
+												</xsl:call-template>
+											</xsl:for-each>
+										</xsl:when>
+										<xsl:when
+											test="$PARAM_NAME = 'EDITOR'">
+											<xsl:for-each
+												select="bibtex:file/bibtex:entry//*[bibtex:editor[contains(upper-case(text()), upper-case($PARAM_VALUE))]]">
+												<xsl:call-template
+													name="create-pdf-row">
+													<xsl:with-param
+														name="author" select="bibtex:author" />
+													<xsl:with-param
+														name="title" select="bibtex:title" />
+													<xsl:with-param
+														name="publisher" select="bibtex:publisher" />
+													<xsl:with-param
+														name="year" select="bibtex:year" />
+													<xsl:with-param
+														name="pages" select="bibtex:pages" />
+												</xsl:call-template>
+											</xsl:for-each>
+										</xsl:when>
+										<xsl:otherwise>
+											<xsl:for-each
+												select="bibtex:file/bibtex:entry/*">
+												<xsl:call-template
+													name="create-pdf-row">
+													<xsl:with-param
+														name="author" select="bibtex:author" />
+													<xsl:with-param
+														name="title" select="bibtex:title" />
+													<xsl:with-param
+														name="publisher" select="bibtex:publisher" />
+													<xsl:with-param
+														name="year" select="bibtex:year" />
+													<xsl:with-param
+														name="pages" select="bibtex:pages" />
+												</xsl:call-template>
+											</xsl:for-each>
+										</xsl:otherwise>
+									</xsl:choose>
+
 								</fo:table-body>
 							</fo:table>
 						</fo:inline>
@@ -160,4 +237,41 @@
 			</fo:page-sequence>
 		</fo:root>
 	</xsl:template>
+
+	<xsl:template name="create-pdf-row">
+		<xsl:param name="author" select="'N/A'" />
+		<xsl:param name="title" select="'N/A'" />
+		<xsl:param name="publisher" select="'N/A'" />
+		<xsl:param name="year" select="'N/A'" />
+		<xsl:param name="pages" select="'N/A'" />
+
+		<fo:table-row>
+			<fo:table-cell display-align="center">
+				<fo:block text-align="left">
+					<xsl:value-of select="$author" />
+				</fo:block>
+			</fo:table-cell>
+			<fo:table-cell display-align="center">
+				<fo:block text-align="left">
+					<xsl:value-of select="$title" />
+				</fo:block>
+			</fo:table-cell>
+			<fo:table-cell display-align="center">
+				<fo:block text-align="left">
+					<xsl:value-of select="$publisher" />
+				</fo:block>
+			</fo:table-cell>
+			<fo:table-cell display-align="center">
+				<fo:block text-align="left">
+					<xsl:value-of select="$year" />
+				</fo:block>
+			</fo:table-cell>
+			<fo:table-cell display-align="center">
+				<fo:block text-align="left">
+					<xsl:value-of select="$pages" />
+				</fo:block>
+			</fo:table-cell>
+		</fo:table-row>
+	</xsl:template>
+
 </xsl:stylesheet>
