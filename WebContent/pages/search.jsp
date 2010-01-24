@@ -45,15 +45,15 @@
 		ref="instance('request-bibtex')/soap-env:Body/service:search/service:searchBy">
 		<xf:label>Criteria:</xf:label>
 		<xf:item>
-			<xf:label>Toate</xf:label>
+			<xf:label>All</xf:label>
 			<xf:value>ALL</xf:value>
 		</xf:item>
 		<xf:item>
-			<xf:label>Ani</xf:label>
+			<xf:label>Year</xf:label>
 			<xf:value>ANI</xf:value>
 		</xf:item>
 		<xf:item>
-			<xf:label>Autori</xf:label>
+			<xf:label>Author</xf:label>
 			<xf:value>AUTORI</xf:value>
 		</xf:item>
 		<xf:item>
