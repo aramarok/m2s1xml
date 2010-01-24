@@ -15,7 +15,28 @@
 					<service:add>
 						<service:bibtexEntryId>EliadeM1969LaTiganci</service:bibtexEntryId>
 						<service:bibtexEntryType>book</service:bibtexEntryType>
-						<service:bittexEntryDetails></service:bittexEntryDetails>
+						<service:bittexEntryDetails>
+							<item>
+								<key>autor</key>
+								<value></value>
+							</item>
+							<item>
+								<key>editor</key>
+								<value></value>
+							</item>
+							<item>
+								<key>title</key>
+								<value></value>
+							</item>
+							<item>
+								<key>publisher</key>
+								<value></value>
+							</item>
+							<item>
+								<key>year</key>
+								<value></value>
+							</item>
+						</service:bittexEntryDetails>
 					</service:add>
 				</soap-env:Body>
 			</soap-env:Envelope>
@@ -53,27 +74,27 @@
 	<xhtml:br />
 
 	<xforms:input
-		ref="instance('request-bibtex')/soap-env:Body/service:add/service:bittexEntryDetails">
+		ref="instance('request-bibtex')/soap-env:Body/service:add/service:bittexEntryDetails/item[1]/value">
 		<xforms:label>Author: </xforms:label>
 	</xforms:input>
 
 	<xforms:input
-		ref="instance('request-bibtex')/soap-env:Body/service:add/service:bittexEntryDetails">
+		ref="instance('request-bibtex')/soap-env:Body/service:add/service:bittexEntryDetails/item[2]/value">
 		<xforms:label>Editor: </xforms:label>
 	</xforms:input>
 
 	<xforms:input
-		ref="instance('request-bibtex')/soap-env:Body/service:add/service:bittexEntryDetails">
+		ref="instance('request-bibtex')/soap-env:Body/service:add/service:bittexEntryDetails/item[3]/value">
 		<xforms:label>Title: </xforms:label>
 	</xforms:input>
 
 	<xforms:input
-		ref="instance('request-bibtex')/soap-env:Body/service:add/service:bittexEntryDetails">
+		ref="instance('request-bibtex')/soap-env:Body/service:add/service:bittexEntryDetails/item[4]/value">
 		<xforms:label>Publisher: </xforms:label>
 	</xforms:input>
 
 	<xforms:input
-		ref="instance('request-bibtex')/soap-env:Body/service:add/service:bittexEntryDetails">
+		ref="instance('request-bibtex')/soap-env:Body/service:add/service:bittexEntryDetails/item[5]/value">
 		<xforms:label>Year: </xforms:label>
 	</xforms:input>
 
