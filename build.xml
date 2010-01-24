@@ -6,14 +6,21 @@
 	</property>
 
 	<target name="deploy">
-		<!--<delete dir="${tomcatpath}/webapps/orbeon" />
-		<copy todir="${tomcatpath}/webapps/orbeon">
-			<fileset dir="orbeon" />
-		</copy>-->
-
 		<delete dir="${tomcatpath}/webapps/m2s1xml" />
 		<copy todir="${tomcatpath}/webapps/m2s1xml">
-			<fileset dir="WebContent" excludes="**/p1client/**" />
+			<fileset dir="WebContent" excludes="**/client/**" />
+		</copy>
+	</target>
+
+	<target name="config-server">
+			<copy file="${tomcatpath}/conf/server.xml" tofile="${tomcatpath}/conf/server.xml.backup" overwrite="false" />
+			<copy file="serverconfig/server.xml" todir="${tomcatpath}/conf" overwrite="true" />
+		</target>
+	
+	<target name="install" depends="config-server, deploy">
+		<delete dir="${tomcatpath}/webapps/orbeon" />
+		<copy todir="${tomcatpath}/webapps/orbeon">
+			<fileset dir="orbeon" />
 		</copy>
 	</target>
 </project>
