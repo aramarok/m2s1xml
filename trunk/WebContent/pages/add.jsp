@@ -9,9 +9,6 @@
 <xhtml:head>
 	<xhtml:title>Bibtex</xhtml:title>
 	<xforms:model>
-		<xforms:instance id="main-instance">
-			<instance> <data-set>request-bibtex-book</data-set> </instance>
-		</xforms:instance>
 		<xforms:instance id="request-bibtex-book">
 			<soap-env:Envelope>
 				<soap-env:Body>
@@ -77,7 +74,7 @@
 		<xforms:instance id="response-bibtex-conference">
 			<empty />
 		</xforms:instance>
-		
+
 		<xforms:submission id="bibtex_add_book" method="post"
 			action="http://localhost:8080/m2s1xml/services/XMLBibtex"
 			ref="instance('request-bibtex-book')" replace="instance"
@@ -89,33 +86,36 @@
 			ref="instance('request-bibtex-article')" replace="instance"
 			instance="response-bibtex-article"
 			mediatype="application/soap+xml; action=&quot;http://localhost:8080/m2s1xml/services/XMLBibtex&quot;" />
-			
+
 		<xforms:submission id="bibtex_add_conference" method="post"
 			action="http://localhost:8080/m2s1xml/services/XMLBibtex"
 			ref="instance('request-bibtex-article')" replace="instance"
 			instance="response-bibtex-conference"
 			mediatype="application/soap+xml; action=&quot;http://localhost:8080/m2s1xml/services/XMLBibtex&quot;" />
-			
+
 	</xforms:model>
 
 </xhtml:head>
 
 <xhtml:body>
 	<jsp:include page="menu/menu.jsp"></jsp:include>
-	<h1>Add Bibtex Entry</h1>
+	<xhtml:h1>Add Bibtex Entry</xhtml:h1>
 	<xhtml:br />
-	<xforms:trigger>
-		<xforms:label>Book</xforms:label>
-		<xforms:toggle case="book" ev:event="DOMActivate" />
-	</xforms:trigger>
-	<xforms:trigger>
-		<xforms:label>Article</xforms:label>
-		<xforms:toggle case="article" ev:event="DOMActivate" />
-	</xforms:trigger>
-	<xforms:trigger>
-		<xforms:label>Conference</xforms:label>
-		<xforms:toggle case="conference" ev:event="DOMActivate" />
-	</xforms:trigger>
+	<xforms:group>
+		<xforms:trigger>
+			<xforms:label>Book</xforms:label>
+			<xforms:toggle case="book" ev:event="DOMActivate" />
+		</xforms:trigger>
+		<xforms:trigger>
+			<xforms:label>Article</xforms:label>
+			<xforms:toggle case="article" ev:event="DOMActivate" />
+		</xforms:trigger>
+		<xforms:trigger>
+			<xforms:label>Conference</xforms:label>
+			<xforms:toggle case="conference" ev:event="DOMActivate" />
+		</xforms:trigger>
+	</xforms:group>
+	<xhtml:br />
 	<xhtml:br />
 	<xforms:switch>
 		<xforms:case id="book">
@@ -156,6 +156,7 @@
 			<xhtml:br />
 			<xhtml:br />
 			<xhtml:hr />
+			Result: 
 			<xforms:group ref="instance('response-bibtex-book')/soap-env:Body">
 				<xforms:output value="service:addResponse" mediatype="text/html" />
 			</xforms:group>
@@ -203,6 +204,7 @@
 			<xhtml:br />
 			<xhtml:br />
 			<xhtml:hr />
+			Result: 
 			<xforms:group ref="instance('response-bibtex-article')/soap-env:Body">
 				<xforms:output value="service:addResponse" mediatype="text/html" />
 			</xforms:group>
@@ -235,15 +237,18 @@
 			<xhtml:br />
 			<xforms:trigger>
 				<xforms:label>Add Conference</xforms:label>
-				<xforms:send submission="bibtex_add_conference" ev:event="DOMActivate" />
+				<xforms:send submission="bibtex_add_conference"
+					ev:event="DOMActivate" />
 			</xforms:trigger>
 			<xhtml:br />
 			<xhtml:br />
 			<xhtml:hr />
-			<xforms:group ref="instance('response-bibtex-conference')/soap-env:Body">
+			Result: 
+			<xforms:group
+				ref="instance('response-bibtex-conference')/soap-env:Body">
 				<xforms:output value="service:addResponse" mediatype="text/html" />
 			</xforms:group>
-		</xforms:case>		
+		</xforms:case>
 	</xforms:switch>
 </xhtml:body>
 </xhtml:html>

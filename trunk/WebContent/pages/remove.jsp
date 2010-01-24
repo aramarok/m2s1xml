@@ -12,7 +12,7 @@
 			<soap-env:Envelope>
 				<soap-env:Body>
 					<service:remove>
-						<service:bibtexEntryId>Bergamaschi1999</service:bibtexEntryId>
+						<service:bibtexEntryId>bibtexEntryId</service:bibtexEntryId>
 					</service:remove>
 				</soap-env:Body>
 			</soap-env:Envelope>
@@ -31,7 +31,7 @@
 
 <xhtml:body>
 	<jsp:include page="menu/menu.jsp"></jsp:include>
-	<h1>Remove Bibtex Entry</h1>
+	<xhtml:h1>Remove Bibtex Entry</xhtml:h1>
 	<xhtml:br />
 
 	<xforms:input

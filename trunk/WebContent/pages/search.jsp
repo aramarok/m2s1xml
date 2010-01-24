@@ -37,7 +37,7 @@
 
 <xhtml:body>
 	<jsp:include page="menu/menu.jsp"></jsp:include>
-	<h1>Search Bibtex</h1>
+	<xhtml:h1>Search Bibtex</xhtml:h1>
 	<xhtml:br />
 
 
