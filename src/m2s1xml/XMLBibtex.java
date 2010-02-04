@@ -1,40 +1,36 @@
 package m2s1xml;
 
 import java.io.BufferedOutputStream;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.DataInputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.StringWriter;
 import java.io.Writer;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
+import java.util.List;
 
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.transform.OutputKeys;
 import javax.xml.transform.Result;
 import javax.xml.transform.Source;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerConfigurationException;
 import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
-import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.sax.SAXResult;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
-import javax.xml.xpath.XPath;
-import javax.xml.xpath.XPathConstants;
-import javax.xml.xpath.XPathFactory;
 
 import org.apache.fop.apps.FOUserAgent;
 import org.apache.fop.apps.Fop;
 import org.apache.fop.apps.FopFactory;
 import org.apache.fop.apps.MimeConstants;
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.Node;
 
 public class XMLBibtex {
 
@@ -67,82 +63,152 @@ public class XMLBibtex {
 
 		if (bibtexEntryId != null && bibtexEntryType != null
 				&& bibtexEntryDetails != null) {
-			try {
-				
-				// DEBUG:
-				Set<String> keys = bibtexEntryDetails.keySet();
-				System.out.println("DEBUG: bibtexEntryDetails");
-				for (String key : keys) {
-					String value = bibtexEntryDetails.get(key).toString();
-					System.out.println("key=" + key + ", value=" + value);
-				}
 
-				File dbDocFile = new File(Constants.BIBTEX_XML_DB);
+			List<String> fileLines = new ArrayList<String>();
+			List<String> entityLines = new ArrayList<String>();
 
-				Document dbDoc;
+			Iterator<String> it = bibtexEntryDetails.keySet().iterator();
 
-				XPath xPath;
+			entityLines.add("\t<bibtex:entry id=\"" + bibtexEntryId + "\">"
+					+ System.getProperty("line.separator"));
+			entityLines.add("\t\t<bibtex:" + bibtexEntryType + ">"
+					+ System.getProperty("line.separator"));
 
-				Node bibtexEntries = null;
+			while (it.hasNext()) {
 
-				DocumentBuilderFactory factory = DocumentBuilderFactory
-						.newInstance();
-				DocumentBuilder builder = factory.newDocumentBuilder();
-				dbDoc = builder.parse(dbDocFile);
-
-				XPathFactory xpf = XPathFactory.newInstance();
-				xPath = xpf.newXPath();
-				xPath.setNamespaceContext(new BibTexPrefix());
-
-				bibtexEntries = (Node) xPath.evaluate("/bibtex:file/.", dbDoc,
-						XPathConstants.NODE);
-
-				Element bibtexEntry = dbDoc.createElement(Constants.XML_BIBTEX
-						+ "entry");
-				bibtexEntry.setAttribute("id", bibtexEntryId);
-
-				Element bibtexEntryType_ = dbDoc
-						.createElement(Constants.XML_BIBTEX + bibtexEntryType);
-				Element bibtexEntryType__ = null;
-
-				Iterator<Map.Entry<String, String>> iterator = bibtexEntryDetails
-						.entrySet().iterator();
-				Map.Entry<String, String> entry = null;
-
-				while (iterator.hasNext()) {
-					entry = iterator.next();
-					bibtexEntryType__ = dbDoc
-							.createElement(Constants.XML_BIBTEX
-									+ entry.getKey());
-					bibtexEntryType__.setTextContent(entry.getValue());
-					bibtexEntryType_.appendChild(bibtexEntryType__);
-				}
-
-				bibtexEntry.appendChild(bibtexEntryType_);
-				bibtexEntries.appendChild(bibtexEntry);
-
-				TransformerFactory transformerfactory = TransformerFactory
-						.newInstance();
-				Transformer transformer = transformerfactory.newTransformer();
-
-				transformer.setOutputProperty(OutputKeys.METHOD, "xml");
-				transformer.setOutputProperty(OutputKeys.ENCODING, "utf-8");
-				transformer.setOutputProperty(
-						"{http://xml.apache.org/xslt}indent-amount", "4");
-				transformer.setOutputProperty(OutputKeys.INDENT, "yes");
-
-				DOMSource domSource = new DOMSource(dbDoc);
-				FileOutputStream fOut = new FileOutputStream(dbDocFile);
-				transformer.transform(domSource, new StreamResult(fOut));
-				return true;
-			} catch (Exception ex) {
-				System.out.println("Error while adding bibtex entry.");
-				ex.printStackTrace();
-				return false;
+				String cheie = it.next();
+				entityLines.add("\t\t\t<bibtex:" + cheie + ">"
+						+ bibtexEntryDetails.get(cheie) + "</bibtex:" + cheie
+						+ ">" + System.getProperty("line.separator"));
 			}
-		} else {
-			return false;
+
+			entityLines.add("\t\t</bibtex:" + bibtexEntryType + ">"
+					+ System.getProperty("line.separator"));
+			entityLines.add("\t</bibtex:entry>");
+
+			try {
+				FileInputStream fileInputStream = new FileInputStream(
+						Constants.BIBTEX_XML_DB);
+				DataInputStream dataInputStream = new DataInputStream(
+						fileInputStream);
+				BufferedReader bufferedReader = new BufferedReader(
+						new InputStreamReader(dataInputStream));
+				String linie;
+				while ((linie = bufferedReader.readLine()) != null) {
+					fileLines.add(linie);
+				}
+
+				dataInputStream.close();
+
+				Writer output = null;
+				File file = new File(Constants.BIBTEX_XML_DB + "tmp");
+				output = new BufferedWriter(new FileWriter(file));
+
+				for (int i = 0; i < fileLines.size() - 1; i++) {
+					output.write(fileLines.get(i)
+							+ System.getProperty("line.separator"));
+				}
+
+				for (String string : entityLines) {
+					output.write(string);
+				}
+
+				output.write(System.getProperty("line.separator")
+						+ fileLines.get(fileLines.size() - 1));
+
+				output.close();
+
+				File bibfile = new File(Constants.BIBTEX_XML_DB);
+				bibfile.delete();
+				new File(Constants.BIBTEX_XML_DB + "tmp").renameTo(bibfile);
+
+				return true;
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
+
+		return false;
+
+		// if (bibtexEntryId != null && bibtexEntryType != null
+		// && bibtexEntryDetails != null) {
+		// try {
+		//				
+		// // DEBUG:
+		// Set<String> keys = bibtexEntryDetails.keySet();
+		// System.out.println("DEBUG: bibtexEntryDetails");
+		// for (String key : keys) {
+		// String value = bibtexEntryDetails.get(key).toString();
+		// System.out.println("key=" + key + ", value=" + value);
+		// }
+		//
+		// File dbDocFile = new File(Constants.BIBTEX_XML_DB);
+		//
+		// Document dbDoc;
+		//
+		// XPath xPath;
+		//
+		// Node bibtexEntries = null;
+		//
+		// DocumentBuilderFactory factory = DocumentBuilderFactory
+		// .newInstance();
+		// DocumentBuilder builder = factory.newDocumentBuilder();
+		// dbDoc = builder.parse(dbDocFile);
+		//
+		// XPathFactory xpf = XPathFactory.newInstance();
+		// xPath = xpf.newXPath();
+		// xPath.setNamespaceContext(new BibTexPrefix());
+		//
+		// bibtexEntries = (Node) xPath.evaluate("/bibtex:file/.", dbDoc,
+		// XPathConstants.NODE);
+		//
+		// Element bibtexEntry = dbDoc.createElement(Constants.XML_BIBTEX
+		// + "entry");
+		// bibtexEntry.setAttribute("id", bibtexEntryId);
+		//
+		// Element bibtexEntryType_ = dbDoc
+		// .createElement(Constants.XML_BIBTEX + bibtexEntryType);
+		// Element bibtexEntryType__ = null;
+		//
+		// Iterator<Map.Entry<String, String>> iterator = bibtexEntryDetails
+		// .entrySet().iterator();
+		// Map.Entry<String, String> entry = null;
+		//
+		// while (iterator.hasNext()) {
+		// entry = iterator.next();
+		// bibtexEntryType__ = dbDoc
+		// .createElement(Constants.XML_BIBTEX
+		// + entry.getKey());
+		// bibtexEntryType__.setTextContent(entry.getValue());
+		// bibtexEntryType_.appendChild(bibtexEntryType__);
+		// }
+		//
+		// bibtexEntry.appendChild(bibtexEntryType_);
+		// bibtexEntries.appendChild(bibtexEntry);
+		//
+		// TransformerFactory transformerfactory = TransformerFactory
+		// .newInstance();
+		// Transformer transformer = transformerfactory.newTransformer();
+		//
+		// transformer.setOutputProperty(OutputKeys.METHOD, "xml");
+		// transformer.setOutputProperty(OutputKeys.ENCODING, "utf-8");
+		// transformer.setOutputProperty(
+		// "{http://xml.apache.org/xslt}indent-amount", "4");
+		// transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+		//
+		// DOMSource domSource = new DOMSource(dbDoc);
+		// FileOutputStream fOut = new FileOutputStream(dbDocFile);
+		// transformer.transform(domSource, new StreamResult(fOut));
+		// return true;
+		// } catch (Exception ex) {
+		// System.out.println("Error while adding bibtex entry.");
+		// ex.printStackTrace();
+		// return false;
+		// }
+		// } else {
+		// return false;
+		// }
 
 	}
 
@@ -179,8 +245,9 @@ public class XMLBibtex {
 
 			getPDFReport("ALL", "ALL");
 
-			return Util.getBytesFromFile(new File(Constants.BIBTEX_PDF_FOP_OUT));
-			
+			return Util
+					.getBytesFromFile(new File(Constants.BIBTEX_PDF_FOP_OUT));
+
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.exit(-1);
