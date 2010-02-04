@@ -96,7 +96,7 @@
 
 		<xforms:submission id="bibtex_add_conference" method="post"
 			action="http://localhost:8080/m2s1xml/services/XMLBibtex"
-			ref="instance('request-bibtex-article')" replace="instance"
+			ref="instance('request-bibtex-conference')" replace="instance"
 			instance="response-bibtex-conference"
 			mediatype="application/soap+xml; action=&quot;http://localhost:8080/m2s1xml/services/XMLBibtex&quot;" />
 
